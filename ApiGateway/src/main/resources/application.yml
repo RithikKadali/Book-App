@@ -1,0 +1,39 @@
+server:
+    port: 9087
+
+eureka:
+  instance:
+    hostname: localhost
+  # fetch-registry: true
+  # register-with-eureka: true  
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+     gateway:
+      default-filters:
+        - DedupeResponseHeader= Access-Control-Allow-Origin
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+
+            allowedOrigins:
+              - "http://localhost:4200"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+
+      discovery:
+      
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+      - id: user-service
+        uri: lb://user-service
+        predicates:
+            - Path=/user/**
+
+     
+

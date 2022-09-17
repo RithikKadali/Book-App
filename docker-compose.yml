@@ -1,0 +1,19 @@
+version: '3'
+services:
+#   container for mysql
+  databasemysql:
+    image: mysql:8.0.17
+    restart: always
+    ports:
+      - "8000:5000"
+    container_name: mysql-doc
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: root
+      MYSQL_PASSWORD: Rithikkadali22
+      MYSQL_DATABASE: bookuser
+
+
+    
+  

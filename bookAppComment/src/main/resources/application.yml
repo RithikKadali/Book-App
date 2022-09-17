@@ -1,0 +1,7 @@
+server:
+  port: 8083
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://RITHIKs:Rithikkadali22.74.6@cluster0.cparw.mongodb.net/test
